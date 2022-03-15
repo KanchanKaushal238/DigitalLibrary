@@ -1,0 +1,49 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site1.master.cs" Inherits="DigitalImage.Site1" %>
+
+<!DOCTYPE html>
+
+<html>
+<head runat="server">
+    <title></title>
+    <asp:ContentPlaceHolder ID="head" runat="server">
+    </asp:ContentPlaceHolder>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <table style ="width:100%">
+            <tr>
+                <td colspan ="2" style="background-color:purple; text-align:center; color:white; font-weight:bold;font-size:large">
+                    The Online Digital Library
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    Breadcrumb will go here.....
+                </td>
+                <td>
+                    <asp:LoginView ID="LoginView1" runat="server">
+                        <LoggedInTemplate>
+                            Welcome Back, 
+                            <asp:LoginName ID="LoginName1" runat="server" />&nbsp;
+                            <asp:LoginStatus ID="LoginStatus2" runat="server" LogoutAction="Redirect" LogoutPageUrl="~/WebForm1.aspx"/><br />
+                            <asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/DigitalAdmin/ManageCategories.aspx" Text="[Manage Digital Library]"></asp:HyperLink>
+
+                        </LoggedInTemplate>
+
+                        <AnonymousTemplate>
+                            <asp:LoginStatus ID="LoginStatus1" runat="server" LogoutAction="RedirectToLoginPage" />
+                        </AnonymousTemplate>
+                    </asp:LoginView>
+                </td>
+            </tr>
+            <tr>
+                <td colspan ="2">
+                     <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+            </asp:ContentPlaceHolder>
+                </td>
+            </tr>
+        </table>
+       
+    </form>
+</body>
+</html>
